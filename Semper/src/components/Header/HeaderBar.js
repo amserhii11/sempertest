@@ -24,10 +24,6 @@ const HeaderBar = ({ showMenu, screenName, canGoBack = false, goBack, onClickBur
             </TouchableOpacity>}
         </View>
       </SafeAreaView>
-      <View style={styles.headerButtons}>
-
-
-      </View>
     </>
   )
 }
