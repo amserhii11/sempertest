@@ -3,9 +3,12 @@ import { COLORS } from '../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
+    alignItems: 'flex-end',
     backgroundColor: COLORS.WHITE,
     width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: 18,
@@ -22,7 +25,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     backgroundColor: COLORS.WHITE,
-    paddingHorizontal: 20
   }
 })
 

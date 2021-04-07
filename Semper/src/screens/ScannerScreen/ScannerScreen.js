@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -36,12 +36,19 @@ const handleScannedCode = (statusCode) => {
 
 const ScannerScreen = ({ navigation }) => {
 
+  const [canReadCode, setCanReadCode] = useState(true)
+
   const onBarCodeRead = (e) => {
+    setCanReadCode(false)
+    setTimeout(() => {
+      setCanReadCode(true)
+    }, 3500)
     API.scanCode({ code: e.data, }).then(res => {
       handleScannedCode(res.statusCode)
     }).catch(err => {
       Alert.alert('', i18n.t('Scanner:SomethingWrong'))
     })
+
   }
 
   return (
@@ -51,7 +58,7 @@ const ScannerScreen = ({ navigation }) => {
 
         <RNCamera
           style={styles.preview}
-          onBarCodeRead={onBarCodeRead}
+          onBarCodeRead={canReadCode ? onBarCodeRead : null}
           androidCameraPermissionOptions={{
             title: 'Permission to use camera',
             message: 'We need your permission to use your camera',

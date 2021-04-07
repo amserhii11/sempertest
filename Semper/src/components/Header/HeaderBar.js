@@ -9,9 +9,6 @@ const HeaderBar = ({ showMenu, screenName, canGoBack = false, goBack, onClickBur
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>{screenName}</Text>
-      </SafeAreaView>
-      <View style={styles.headerButtons}>
         <View>
           {canGoBack &&
             <TouchableOpacity activeOpacity={0.8} onPress={() => goBack()} style={styles.backButton}>
@@ -19,12 +16,17 @@ const HeaderBar = ({ showMenu, screenName, canGoBack = false, goBack, onClickBur
             </TouchableOpacity>
           }
         </View>
+        <Text style={styles.title}>{screenName}</Text>
         <View>
           {showMenu &&
             <TouchableOpacity activeOpacity={0.8} onPress={() => onClickBurger()} style={styles.burgerMenu}>
               <BurgerMenu width={30} height={18} />
             </TouchableOpacity>}
         </View>
+      </SafeAreaView>
+      <View style={styles.headerButtons}>
+
+
       </View>
     </>
   )
